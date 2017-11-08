@@ -8,7 +8,7 @@ public class Game {
     // FIELDS
     private Boolean _isOFF;
     protected ArrayList<Player> _listOfPlayers = new ArrayList<Player>();
-	ArrayList<Card> cards = new ArrayList<Card>();
+    ArrayList<Card> cards = new ArrayList<Card>();
     private Deck _deck;
 
 
