@@ -53,7 +53,7 @@ public class Game {
     }
 
     protected void compareCards(ArrayList<Card> cards) {
-		ArrayList<Integer> points = new ArrayList<Integer>();
+	ArrayList<Integer> points = new ArrayList<Integer>();
     	for (Card c : cards)
     	{
     		points.add(c.getAttak());
