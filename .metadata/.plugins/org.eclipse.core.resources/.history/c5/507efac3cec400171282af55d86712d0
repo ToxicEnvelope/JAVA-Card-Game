@@ -1,0 +1,63 @@
+package com.sysmurff.java.games.cardsgame;
+
+import java.util.ArrayList;
+
+public class Game {
+
+
+    // FIELDS
+    private Boolean _isOFF;
+    protected ArrayList<Player> _listOfPlayers = new ArrayList<Player>();
+	ArrayList<Card> cards = new ArrayList<Card>();
+    private Deck _deck;
+
+
+    // CONSTRUCTOR
+    public Game() {
+        init();
+    }
+
+    protected void init() {
+        try {
+            for ( int n=0; n<2; n++)
+            {
+                this._listOfPlayers.add( new Player("Player " + (n+1)));
+            }
+            this._deck = new Deck();
+            this._isOFF = false;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void start() {
+        while(!this._isOFF) {
+            if(!this._deck.isEmpty())
+            {
+                if(!_listOfPlayers.get(0).isCardInHand())
+                {
+                    _listOfPlayers.get(0).draw(this._deck);
+                }
+                else if(!_listOfPlayers.get(1).isCardInHand()) {
+                	_listOfPlayers.get(1).draw(this._deck);
+                }
+                else {
+                	compareCards(_listOfPlayers);
+                }
+            }
+            this._isOFF = true;
+        }
+    }
+
+    protected void compareCards(ArrayList<Player> players) {
+    	for ( Player p : players)
+    	{
+    		cards.add(p.getCardInHand());
+    	}
+    	for (Card c : cards)
+    	{
+    		ArrayList<Integer> points = new ArrayList<Ineger>();
+    	}
+    }
+}

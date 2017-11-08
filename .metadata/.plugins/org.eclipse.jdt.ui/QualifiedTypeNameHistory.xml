@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+<fullyQualifiedTypeName name="io.appium.java_client.AppiumDriver"/>
+<fullyQualifiedTypeName name="com.sysmurff.java.games.cardsgame.Game"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.concurrent.SynchronousQueue"/>
+<fullyQualifiedTypeName name="com.sysmurff.java.games.cardsgame.Card"/>
+</qualifiedTypeNameHistroy>
