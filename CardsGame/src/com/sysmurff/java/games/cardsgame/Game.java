@@ -1,14 +1,15 @@
 package com.sysmurff.java.games.cardsgame;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
 
 
     // FIELDS
     private Boolean _isOFF;
-    protected ArrayList<Player> _listOfPlayers = new ArrayList<Player>();
-    ArrayList<Card> cards = new ArrayList<Card>();
+    protected List<Player> _listOfPlayers = new ArrayList<Player>();
+	protected List<Card> cards = new ArrayList<Card>();
     private Deck _deck;
 
 
@@ -16,7 +17,8 @@ public class Game {
     public Game() {
         init();
     }
-
+    
+    // Initialize the game dependencies
     protected void init() {
         try {
             for ( int n=0; n<2; n++)
@@ -31,10 +33,14 @@ public class Game {
         }
     }
 
+    // Start the game
     protected void start() {
+    	// run while true
         while(!this._isOFF) {
+        	// check if deck is empty
             if(!this._deck.isEmpty())
             {
+            	
             	for (Player p : _listOfPlayers)
             	{
             		if(!p.isCardInHand())
@@ -52,13 +58,19 @@ public class Game {
         }
     }
 
-    protected void compareCards(ArrayList<Card> cards) {
-	ArrayList<Integer> points = new ArrayList<Integer>();
-    	for (Card c : cards)
+    protected void compareCards(List<Card> cards2) {
+		ArrayList<Integer> points = new ArrayList<Integer>();
+    	for (Card c : cards2)
     	{
     		points.add(c.getAttak());
     		points.add(c.getDefence());
     	}
+    	// -- NEW -- //
+    	
+    	
+    	
+    	
+    	//// --- ORIGINAL --- ////
     	if( (points.get(0) + points.get(1)) > (points.get(2) + points.get(3)) ) 
     	{
     		_listOfPlayers.get(0).SCORE++;
@@ -78,7 +90,7 @@ public class Game {
     	}
     }
     
-    protected void compareScore(ArrayList<Player> players) {
+    protected void compareScore(List<Player> players) {
     	if(players.get(0).SCORE > players.get(1).SCORE)
     	{
     		System.out.println(players.get(0).getName() + " won the game with " + players.get(0).SCORE + " score points");

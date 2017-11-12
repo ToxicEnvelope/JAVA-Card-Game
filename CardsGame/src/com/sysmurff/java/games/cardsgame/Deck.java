@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Deck extends GameObject {
 
     // FIELDS
-    private ArrayList<Card> _cardsInDeck = new ArrayList<Card>(200);
+    private ArrayList<Card> _cardsInDeck = new ArrayList<Card>();
     private Card _current;
 
 
@@ -59,7 +59,7 @@ public class Deck extends GameObject {
 
     // PRIVATE METHODS
     private void generateCards() {
-        for( int n=0; n<200; n++ )
+        for( int n=0; n<6; n++ )
         {
             this._cardsInDeck.add(new Card(getRandNum(), getRandNum()));
         }

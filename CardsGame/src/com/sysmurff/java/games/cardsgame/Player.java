@@ -1,15 +1,18 @@
 package com.sysmurff.java.games.cardsgame;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 
-public class Player {
+public class Player implements ICrowdControll {
 
 
     // FIELDS
     private UUID _id;
-    private String _name;
-    private Card _cardInHand;
+    private String _name;    
+    private List<Card> _cardsInHand = new ArrayList<Card>();		// Add the ability of having more then 1 Card object in hand 
+    //private Card _cardInHand;
     private Card _that;
     protected int SCORE = 0;
 
@@ -18,7 +21,7 @@ public class Player {
     public Player(String aName) {
         this._id = UUID.randomUUID();
         this._name = aName;
-        this._cardInHand = null;
+        this._cardsInHand = null;
     }
 
 
@@ -31,11 +34,23 @@ public class Player {
         return _id;
     }
 
+    // Returns List<Card> _cardsInHand -> all Card objects that the Player have  
+    protected List<Card> getAllCards() {
+    	return _cardsInHand;
+    }
+    
+    // Works the same, return _cardsInHand._FIRST_INDEX_ -> Card object
     protected Card getCardInHand() {
-        this._that = _cardInHand;
-        _cardInHand = null;
+        this._that = _cardsInHand.get(0);
+        _cardsInHand = null;
         return _that;
     }
+
+//    protected Card getCardInHand() {
+//        this._that = _cardInHand;
+//        _cardInHand = null;
+//        return _that;
+//    }
 
     protected void printPlayerInfo() {
         System.out.println("\n----------"
@@ -46,7 +61,7 @@ public class Player {
     }
 
     protected Boolean isCardInHand() {
-        if(this._cardInHand != null)
+        if(this._cardsInHand != null)
         {
             return true;
         }
@@ -54,8 +69,38 @@ public class Player {
     }
 
     protected void draw(Deck aDeck) {
-        this._cardInHand = aDeck.draw();
+        this._cardsInHand.add(aDeck.draw());
     }
+
+    // IMPLEMENTED METHODS
+	@Override
+	public void spyOnMe(int aCardIndex) {
+		_cardsInHand.get(aCardIndex).printCardInfo();
+	}
+
+
+	@Override
+	public void spyOnYou(Player p, int index) {
+		p.getAllCards().get(index).printCardInfo();
+	}
+
+
+	@Override
+	public Card switchCard() {
+		
+		return null;
+	}
+
+
+	@Override
+	public Card switchCardSmart() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+//    protected void draw(Deck aDeck) {
+//        this._cardInHand = aDeck.draw();
+//    }
 
 
 }
