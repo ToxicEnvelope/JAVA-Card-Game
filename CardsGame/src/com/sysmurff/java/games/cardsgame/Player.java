@@ -11,7 +11,8 @@ public class Player implements ICrowdControll {
     // FIELDS
     private UUID _id;
     private String _name;    
-    private List<Card> _cardsInHand = new ArrayList<Card>();		// Add the ability of having more then 1 Card object in hand 
+    // Add the ability of having more then 1 Card object in hand 
+    private List<Card> _cardsInHand = new ArrayList<Card>();		
     //private Card _cardInHand;
     private Card _that;
     protected int SCORE = 0;
