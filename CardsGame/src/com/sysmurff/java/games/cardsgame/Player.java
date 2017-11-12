@@ -71,6 +71,10 @@ public class Player implements ICrowdControll {
     protected void draw(Deck aDeck) {
         this._cardsInHand.add(aDeck.draw());
     }
+    
+    //    protected void draw(Deck aDeck) {
+    //        this._cardInHand = aDeck.draw();
+    //    }
 
     // IMPLEMENTED METHODS
 	@Override
@@ -97,10 +101,6 @@ public class Player implements ICrowdControll {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-//    protected void draw(Deck aDeck) {
-//        this._cardInHand = aDeck.draw();
-//    }
 
 
 }
